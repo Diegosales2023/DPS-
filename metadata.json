@@ -1,0 +1,6 @@
+{
+  "name": "DPS Advogados",
+  "description": "Landing page oficial da DAIANE DOS PASSOS SABEDOT - SOCIEDADE INDIVIDUAL DE ADVOCACIA. Especializada em Direito de Seguros, Direito Bancário e Direito da Saúde, contendo simulador dinâmico de conformidade de CPF.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

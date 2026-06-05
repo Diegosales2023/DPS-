@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DPS Advogados | Daiane Sabedot - Sociedade Individual de Advocacia</title>
+    <meta name="description" content="Portal oficial da DAIANE DOS PASSOS SABEDOT - SOCIEDADE INDIVIDUAL DE ADVOCACIA. Atuação em seguros, direito bancário, revisional e saúde." />
+    <script>
+      // Gracefully handle environments/polyfills that try to assign to window.fetch
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return originalFetch;
+            },
+            set: function(newFetch) {
+              originalFetch = newFetch;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          console.warn('[Fetch Patch] Could not define custom fetch setter:', e);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
