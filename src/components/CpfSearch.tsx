@@ -46,9 +46,9 @@ export default function CpfSearch({ onOpenPrivacy }: CpfSearchProps) {
 
   const steps = [
     'Estabelecendo conexão segura com os servidores Bulgarelli...',
-    'Varrendo base de dados em parceria com agentes financeiros (Banco GM, Chevrolet, etc.)...',
+    'Varrendo base de dados para localização de contratos ou pendências...',
     'Rastreando contratos ou pendências vinculadas...',
-    'Calculando margem de desconto para regularização imediata...',
+    'Analisando margens de negociação segura...',
     'Consolidando canais de autoatendimento facilitado...'
   ];
 
@@ -106,6 +106,18 @@ export default function CpfSearch({ onOpenPrivacy }: CpfSearchProps) {
     return () => clearInterval(interval);
   }, [searchState, steps.length]);
 
+  // Auto-redirect to WhatsApp upon success
+  useEffect(() => {
+    if (searchState === 'success') {
+      try {
+        const link = getWhatsAppLink();
+        window.open(link, '_blank');
+      } catch (e) {
+        console.error('Redirecionamento automático bloqueado pelo navegador:', e);
+      }
+    }
+  }, [searchState]);
+
   const handleReset = () => {
     setCpf('');
     setSearchState('idle');
@@ -131,7 +143,7 @@ export default function CpfSearch({ onOpenPrivacy }: CpfSearchProps) {
             Portal Acordo Fácil & Renegociação Simplificada
           </h3>
           <p className="text-xs text-gray-300 mt-1 max-w-lg">
-            Encontre propostas ativas ligadas ao seu CPF ou CNPJ, gere a 2ª via de boletos de financiamento de veículos (Banco GM, Consórcio Chevrolet e outros) ou solicite uma análise de revisão de tarifas e juros abusivos.
+            Encontre propostas ativas ligadas ao seu CPF ou CNPJ, gere a 2ª via de boletos de financiamento de veículos de forma segura ou solicite uma análise de revisão de tarifas e encargos abusivos com nossa equipe.
           </p>
         </div>
 
@@ -259,10 +271,10 @@ export default function CpfSearch({ onOpenPrivacy }: CpfSearchProps) {
                   <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
                   <div>
                     <h4 className="text-sm font-bold text-emerald-950 font-sans">
-                      Oportunidade de Acordo Identificada!
+                      Consulta Concluída com Sucesso!
                     </h4>
                     <p className="text-xs text-emerald-800 mt-1 leading-relaxed">
-                      Encontramos condições de desconto sob coordenação da Bulgarelli Sociedade de Advogados para quitação, reparação ou emissão de guias facilitadas vinculadas ao seu perfil.
+                      Sua solicitação de autoatendimento foi processada com sucesso. Para garantir total sigilo dos seus dados e receber o suporte direto de nossa célula de atendimento, continue para o canal oficial via WhatsApp.
                     </p>
                   </div>
                 </div>
@@ -273,28 +285,17 @@ export default function CpfSearch({ onOpenPrivacy }: CpfSearchProps) {
                     <ul className="space-y-3">
                       <li className="flex items-start gap-2.5 text-xs text-slate-700">
                         <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span><strong>Regularização Fácil de Débitos:</strong> Abatimentos promocionais vigentes de juros e mora de até 85% sobre saldo residual em financiamentos e consórcios Chevrolet/Banco GM.</span>
+                        <span><strong>Suporte e Regularização Amigável:</strong> Atendimento com especialistas qualificados para negociar contratos, cessões de crédito e propostas administrativas.</span>
                       </li>
                       <li className="flex items-start gap-2.5 text-xs text-slate-700">
                         <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span><strong>2ª Via de Boletos de Financiamento:</strong> Autenticação imediata e emissão segura das parcelas do veículo diretamente no WhatsApp, evitando fraudes ou boletos falsos.</span>
+                        <span><strong>2ª Via de Boletos de Financiamento:</strong> Emissão de guias autenticadas e boletos oficiais registrados, livre de quaisquer fraudes ou intermediadoras suspeitas.</span>
                       </li>
                       <li className="flex items-start gap-2.5 text-xs text-slate-700">
                         <CheckCircle className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span><strong>Revisional Contratual de Abusos:</strong> Opções de análise de contrato para repactuação do saldo devido, redução de parcelas e repetição de indébito de tarifas irregulares (TAC, TACB).</span>
+                        <span><strong>Proteção sob a LGPD:</strong> Todas as propostas e simulações são confidenciais e transmitidas de titular para titular com privacidade absoluta.</span>
                       </li>
                     </ul>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4 text-center">
-                    <div className="p-3 bg-emerald-50/50 border border-emerald-100/50 rounded-xl">
-                      <span className="text-[10px] uppercase font-mono text-gray-500 block">Abatimento Máximo</span>
-                      <span className="text-lg md:text-xl font-bold text-emerald-700 font-mono">Até 85%</span>
-                    </div>
-                    <div className="p-3 bg-emerald-50/50 border border-emerald-100/50 rounded-xl">
-                      <span className="text-[10px] uppercase font-mono text-gray-500 block">Parceiro Principal</span>
-                      <span className="text-xs font-bold text-emerald-700 block mt-1 uppercase">Banco GM / Consórcios</span>
-                    </div>
                   </div>
                 </div>
 
@@ -307,7 +308,7 @@ export default function CpfSearch({ onOpenPrivacy }: CpfSearchProps) {
                     id="whatsapp-claim-btn"
                   >
                     <Smartphone className="h-5 w-5 shrink-0" />
-                    Negociar pelo WhatsApp
+                    Falar com o Suporte pelo WhatsApp
                   </a>
 
                   <button
@@ -322,7 +323,7 @@ export default function CpfSearch({ onOpenPrivacy }: CpfSearchProps) {
 
                 <div className="text-center pt-2">
                   <p className="text-[10px] text-gray-400">
-                    *Esta simulação é confidencial. Nosso escritório jamais compartilhará seus dados corporativos.*
+                    *Esta simulação é confidencial. Nosso escritório jamais compartilhará os seus dados.*
                   </p>
                 </div>
               </motion.div>
