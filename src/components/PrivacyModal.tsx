@@ -37,10 +37,10 @@ export default function PrivacyModal({ isOpen, onClose, tab }: PrivacyModalProps
           {/* Header */}
           <div className="p-6 border-b border-gray-100 flex items-center justify-between bg-slate-900 text-white">
             <div className="flex items-center gap-3">
-              <Scale className="h-6 w-6 text-cyan-400" />
+              <Scale className="h-6 w-6 text-emerald-400" />
               <div>
-                <h3 className="font-sans font-semibold text-lg text-white">Portal de Governança e Compliance</h3>
-                <p className="text-xs text-gray-400">DAIANE DOS PASSOS SABEDOT - SOCIEDADE INDIVIDUAL DE ADVOCACIA</p>
+                <h3 className="font-sans font-semibold text-lg text-white">Portal de Governança, Transparência e Compliance</h3>
+                <p className="text-xs text-gray-400">BULGARELLI SOCIEDADE DE ADVOGADOS</p>
               </div>
             </div>
             <button
@@ -55,10 +55,10 @@ export default function PrivacyModal({ isOpen, onClose, tab }: PrivacyModalProps
           {/* Navigation Tabs */}
           <div className="flex border-b border-gray-200 overflow-x-auto bg-gray-50 shrink-0">
             <button
-              onClick={() => setActiveTab('privacy')}
+               onClick={() => setActiveTab('privacy')}
               className={`flex items-center gap-2 py-3 px-6 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
                 activeTab === 'privacy'
-                  ? 'border-cyan-600 text-cyan-600 bg-white'
+                  ? 'border-emerald-600 text-emerald-600 bg-white'
                   : 'border-transparent text-gray-500 hover:text-slate-900'
               }`}
             >
@@ -69,7 +69,7 @@ export default function PrivacyModal({ isOpen, onClose, tab }: PrivacyModalProps
               onClick={() => setActiveTab('terms')}
               className={`flex items-center gap-2 py-3 px-6 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
                 activeTab === 'terms'
-                  ? 'border-cyan-600 text-cyan-600 bg-white'
+                  ? 'border-emerald-600 text-emerald-600 bg-white'
                   : 'border-transparent text-gray-500 hover:text-slate-900'
               }`}
             >
@@ -80,7 +80,7 @@ export default function PrivacyModal({ isOpen, onClose, tab }: PrivacyModalProps
               onClick={() => setActiveTab('cookies')}
               className={`flex items-center gap-2 py-3 px-6 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
                 activeTab === 'cookies'
-                  ? 'border-cyan-600 text-cyan-600 bg-white'
+                  ? 'border-emerald-600 text-emerald-600 bg-white'
                   : 'border-transparent text-gray-500 hover:text-slate-900'
               }`}
             >
@@ -91,7 +91,7 @@ export default function PrivacyModal({ isOpen, onClose, tab }: PrivacyModalProps
               onClick={() => setActiveTab('security')}
               className={`flex items-center gap-2 py-3 px-6 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
                 activeTab === 'security'
-                  ? 'border-cyan-600 text-cyan-600 bg-white'
+                  ? 'border-emerald-600 text-emerald-600 bg-white'
                   : 'border-transparent text-gray-500 hover:text-slate-900'
               }`}
             >
@@ -106,15 +106,15 @@ export default function PrivacyModal({ isOpen, onClose, tab }: PrivacyModalProps
               <div id="modal-privacy-policy">
                 <h4 className="text-xl font-semibold text-slate-900 mb-4">Política de Privacidade</h4>
                 <p className="mb-4">
-                  A <strong>DAIANE DOS PASSOS SABEDOT - SOCIEDADE INDIVIDUAL DE ADVOCACIA</strong>, registrada sob o CNPJ <strong>49.421.105/0001-03</strong>, valoriza a privacidade dos seus usuários e está comprometida com a proteção de dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD) - Lei nº 13.709/2018.
+                  A <strong>BULGARELLI SOCIEDADE DE ADVOGADOS</strong>, registrada sob o CNPJ <strong>10.461.172/0001-16</strong>, valoriza a privacidade dos seus usuários e está comprometida com a proteção de dados pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD) - Lei nº 13.709/2018.
                 </p>
                 <h5 className="text-base font-semibold text-slate-800 mt-6 mb-2">1. Coleta de Informações</h5>
                 <p className="mb-4">
-                  Coletamos informações estritamente necessárias para a prestação de serviços de advocacia e consulta de elegibilidade, tais como nome, CPF, e-mail, telefone para contato e detalhes sobre contratos financeiros ou demandas de saúde para fins de análise jurídica.
+                  Coletamos informações estritamente necessárias para a prestação de serviços de advocacia e consulta de elegibilidade de acordos, tais como nome, CPF, e-mail, telefone para contato e detalhes gerais do contrato sob análise securitária ou financeira.
                 </p>
                 <h5 className="text-base font-semibold text-slate-800 mt-6 mb-2">2. Finalidade do Tratamento</h5>
                 <p className="mb-4">
-                  Seus dados são tratados exclusivamente para diagnosticar a viabilidade de ações de revisão de contratos bancários, seguros ou abusividades em planos de saúde, além de possibilitar o contato direto de nossa equipe especializada para fornecer o devido suporte advocatício.
+                  Seus dados são tratados exclusivamente para diagnosticar a viabilidade de propostas de regularização, expurgo de venda casada ou quitação de contratos bancários e de seguros, além de viabilizar suporte pelo nosso autoatendimento da equipe especializada.
                 </p>
                 <h5 className="text-base font-semibold text-slate-800 mt-6 mb-2">3. Direitos do Titular</h5>
                 <p className="mb-4">
@@ -132,7 +132,7 @@ export default function PrivacyModal({ isOpen, onClose, tab }: PrivacyModalProps
               <div id="modal-terms">
                 <h4 className="text-xl font-semibold text-slate-900 mb-4">Termos de Uso do Website</h4>
                 <p className="mb-4">
-                  Ao acessar o portal da <strong>DAIANE DOS PASSOS SABEDOT - SOCIEDADE INDIVIDUAL DE ADVOCACIA</strong>, o usuário concorda em cumprir e respeitar os seguintes termos e condições de uso:
+                  Ao acessar o portal da <strong>BULGARELLI SOCIEDADE DE ADVOGADOS</strong>, o usuário concorda em cumprir e respeitar os seguintes termos e condições de uso:
                 </p>
                 <h5 className="text-base font-semibold text-slate-800 mt-6 mb-2">1. Caráter Informativo</h5>
                 <p className="mb-4">

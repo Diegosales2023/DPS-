@@ -1,6 +1,6 @@
 {
-  "name": "DPS Advogados",
-  "description": "Landing page oficial da DAIANE DOS PASSOS SABEDOT - SOCIEDADE INDIVIDUAL DE ADVOCACIA. Especializada em Direito de Seguros, Direito Bancário e Direito da Saúde, contendo simulador dinâmico de conformidade de CPF.",
+  "name": "Bulgarelli Advogados",
+  "description": "Portal oficial da Bulgarelli Sociedade de Advogados (CNPJ 10.461.172/0001-16). Especializada em recuperação de crédito, direito bancário, renegociação de dívidas e assessoria civil corporativa, com canal dinâmico de autoatendimento para negociação e consulta de pendências.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

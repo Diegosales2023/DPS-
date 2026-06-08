@@ -25,20 +25,20 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
 
   const faqs = [
     {
-      q: 'O que caracteriza juros abusivos em um contrato de veículo?',
-      a: 'O STJ define que juros são abusivos quando estão substancialmente acima da taxa média publicada pelo Banco Central (BACEN) para o mesmo período e modalidade de financiamento no mercado.'
+      q: 'Como confirmo se meu boleto de quitação ou parcela é verdadeiro?',
+      a: 'Todos os boletos e propostas gerados pela Bulgarelli Sociedade de Advogados são registrados no Banco GM ou Banco correspondente. Você pode conferir a validade digitando a linha digitável ou via DDA direto do aplicativo de seu banco antes de efetuar qualquer pagamento.'
     },
     {
-      q: 'Como funciona judicialmente o reembolso de seguros embutidos?',
-      a: 'Denominado "venda casada", obrigar o cliente a contratar o seguro da própria operadora do banco com o financiamento é nítida infração ao Artigo 39, I do Código de Defesa do Consumidor. A quantia incorretamente paga pode ser cobrada de volta judicialmente.'
+      q: 'Posso parcelar a quitação amigável do meu contrato?',
+      a: 'Sim! Nosso portal de autoatendimento simula e propõe parcelamentos estendidos flexíveis e até 85% de abatimento para liquidação integral à vista.'
     },
     {
-      q: 'O plano de saúde é obrigado a cobrir medicamentos fora do rol da ANS?',
-      a: 'Sim. Havendo expressa prescrição médica fundamentando a imprescindibilidade do remédio ou cirurgia para proteção da vida da pessoa, a negativa sob pretexto de ausência no Rol da ANS é considerada abusiva pelos tribunais.'
+      q: 'Quais os canais oficiais de negociação da Bulgarelli?',
+      a: 'Nossa central atende de forma unificada pelo número gratuito 0800 725 0800 e pelo WhatsApp institucional (11) 3336-0800. Nunca faça pagamentos para contas de pessoas físicas.'
     },
     {
-      q: 'O atendimento do escritório atende outras cidades fora do Rio Grande do Sul?',
-      a: 'Perfeitamente. Com a informatização completa do judiciário nacional (Processo Eletrônico - PJe, e-Proc, Projudi), conseguimos impetrar ações e defender clientes em qualquer estado do Brasil com máxima agilidade.'
+      q: 'Como funciona a revisão de juros e seguro embutido?',
+      a: 'Analisamos se no contrato de automóvel foi injetada "venda casada" de apólices não autorizadas ou cobranças abusivas substancialmente acima da média divulgada pelo BACEN na data da assinatura.'
     }
   ];
 
@@ -126,46 +126,46 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
             {/* Contacts Info list */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6" id="contact-info-list">
               <div className="p-5 bg-white border border-gray-100 rounded-xl space-y-2">
-                <div className="flex items-center gap-3 text-cyan-600">
+                <div className="flex items-center gap-3 text-emerald-600">
                   <Phone className="h-5 w-5" />
-                  <span className="text-xs font-bold uppercase tracking-wider font-mono">Telefone Direto</span>
+                  <span className="text-xs font-bold uppercase tracking-wider font-mono">Canais de Voz</span>
                 </div>
                 <p className="text-sm font-semibold text-slate-900 leading-snug">
-                  (54) 99123-4567 <br />
-                  (54) 3055-9000
+                  0800 725 0800 <br />
+                  (11) 3336-0800
                 </p>
-                <span className="text-[10px] text-gray-500 block">Segunda a Sexta, das 9h às 18h</span>
+                <span className="text-[10px] text-gray-500 block">Segunda a Sexta, das 08h às 20h | Sábados, das 08h às 14h</span>
               </div>
 
               <div className="p-5 bg-white border border-gray-100 rounded-xl space-y-2">
-                <div className="flex items-center gap-3 text-cyan-600">
+                <div className="flex items-center gap-3 text-emerald-600">
                   <Mail className="h-5 w-5" />
                   <span className="text-xs font-bold uppercase tracking-wider font-mono">E-mail Corporativo</span>
                 </div>
                 <p className="text-sm font-semibold text-slate-900 leading-snug">
-                  contato@dpsadvogados.adv.br <br />
-                  daiane@dpsadvogados.adv.br
+                  atendimento@bulgarelliadvocacia.com.br <br />
+                  contato@bulgarelliadv.com.br
                 </p>
-                <span className="text-[10px] text-gray-500 block">Retorno em até 4 horas úteis</span>
+                <span className="text-[10px] text-gray-500 block">Retorno em até 2 horas úteis</span>
               </div>
 
               <div className="p-5 bg-white border border-gray-100 rounded-xl col-span-1 sm:col-span-2 space-y-2">
-                <div className="flex items-center gap-3 text-cyan-600">
+                <div className="flex items-center gap-3 text-emerald-600">
                   <MapPin className="h-5 w-5" />
                   <span className="text-xs font-bold uppercase tracking-wider font-mono">Oficina Executiva Físico</span>
                 </div>
                 <p className="text-sm font-semibold text-slate-900 leading-snug">
-                  Rua Saldanha Marinho, 435, Sala 302, Centro <br />
-                  Bento Gonçalves - RS, CEP 95700-010
+                  Avenida Paulista, 1776, 3º andar, sala 301, Bela Vista <br />
+                  São Paulo - SP, CEP 01310-200
                 </p>
-                <span className="text-[10px] text-gray-500 block">Atendimento por videoconferência nacional e presencial agendado</span>
+                <span className="text-[10px] text-gray-500 block">Atendimento digital nacional e presencial agendado corporativo</span>
               </div>
             </div>
 
             {/* Quick Accordion Section (FAQ) */}
             <div id="duvidas" className="space-y-6 pt-6 border-t border-gray-200">
               <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <HelpCircle className="h-5 w-5 text-cyan-600 shrink-0" />
+                <HelpCircle className="h-5 w-5 text-emerald-600 shrink-0" />
                 Dúvidas Gerais Frequentes
               </h3>
               
@@ -183,7 +183,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
 
           {/* Right Column: Dynamic Form */}
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative overflow-hidden" id="contact-form-container">
-            <div className="absolute top-0 left-0 w-32 h-32 bg-cyan-100/40 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 left-0 w-32 h-32 bg-emerald-100/40 rounded-full blur-3xl pointer-events-none" />
             
             <AnimatePresence mode="wait">
               {formState === 'submitted' ? (
@@ -204,19 +204,19 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                       Obrigado, {formData.nome.split(' ')[0]}!
                     </h3>
                     <p className="text-xs text-gray-600 max-w-sm">
-                      Sua solicitação de análise jurídica foi enviada para a Dra. Daiane Sabedot. Estaremos avaliando os moldes do seu contrato e retornando por telefone ou WhatsApp nas próximas horas.
+                      Sua solicitação de atendimento foi recebida com sucesso. Nossa célula de renegociação securitária e bancária da Bulgarelli avaliará os dados informados do seu contrato para propor descontos.
                     </p>
                   </div>
 
                   <div className="bg-slate-50 border border-slate-100 p-4 rounded-xl w-full text-left space-y-2 text-xs">
-                    <p className="text-slate-500 font-mono font-semibold uppercase tracking-wider text-[10px]">Resumo do Atendimento:</p>
-                    <p className="text-slate-700"><strong>Área solicitada:</strong> {formData.demanda}</p>
-                    <p className="text-slate-700"><strong>Canal de retorno:</strong> {formData.telefone} | {formData.email}</p>
+                    <p className="text-slate-500 font-mono font-semibold uppercase tracking-wider text-[10px]">Resumo da Solicitação:</p>
+                    <p className="text-slate-700"><strong>Serviço de Interesse:</strong> {formData.demanda}</p>
+                    <p className="text-slate-700"><strong>Canal Retorno:</strong> {formData.telefone} | {formData.email}</p>
                   </div>
 
                   <div className="w-full space-y-3">
                     <a
-                      href={`https://wa.me/5554991234567?text=${encodeURIComponent(`Olá, Dra. Daiane Sabedot. Acabei de preencher o formulário de análise para a demanda de ${formData.demanda}. Gostaria de priorizar o meu retorno.`)}`}
+                      href={`https://wa.me/551133360800?text=${encodeURIComponent(`Olá, equipe Bulgarelli. Acabei de realizar o preenchimento da ficha cadastral para a área de ${formData.demanda} sob o nome de ${formData.nome}. Gostaria de agilizar meu autoatendimento.`)}`}
                       target="_blank"
                       rel="noreferrer"
                       className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-xs uppercase tracking-wider shadow-lg shadow-green-600/10 transition-all cursor-pointer"
@@ -313,36 +313,36 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                     {/* Area Select */}
                     <div>
                       <label htmlFor="form-demanda" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1 font-mono">
-                        Principal interesse / Área jurídica
+                        Principal interesse / Área de negociação
                       </label>
                       <select
                         id="form-demanda"
                         value={formData.demanda}
                         onChange={(e) => handleInputChange('demanda', e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-cyan-100 transition-all text-slate-700 font-sans"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-emerald-100 transition-all text-slate-700 font-sans"
                       >
                         <option value="Financiamento Bancário / Revisional">Financiamento de Veículos / Revisional de Juros</option>
-                        <option value="Negativa ou Aumento de Plano de Saúde">Negativa ou Aumento de Plano de Saúde</option>
-                        <option value="Negativa ou Sinistro de Seguros">Negativa de Sinistro de Seguro (Vida, Auto)</option>
-                        <option value="Isenção de Imposto de Renda">Isenção de Imposto de Renda (Moléstia Grave)</option>
-                        <option value="Assessoria Jurídica Preventiva / Outros">Outras demandas jurídicas complexas</option>
+                        <option value="Quitação Amigável com Desconto">Quitação Amigável com Desconto (Acordo Fácil)</option>
+                        <option value="Emissão de 2ª via de Boleto Registrado">Emissão de 2ª via de Boleto Registrado</option>
+                        <option value="Cessão de Crédito ou Assuntos Corporativos">Cessão de Créditos / Direito de Empresas</option>
+                        <option value="Outras demandas administrativas ou cíveis">Outros assuntos cíveis complexos</option>
                       </select>
                     </div>
 
                     {/* Mensagem Area */}
                     <div>
                       <label htmlFor="form-mensagem" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1 font-mono">
-                        Resumo do seu caso / Dados do contrato
+                        Resumo do seu caso / Dados do contrato (Banco, veículo, parcelas)
                       </label>
                       <textarea
                         id="form-mensagem"
                         rows={3}
-                        placeholder="Ex: Tenho um financiamento pelo Banco X com parcelas altas de 1.500 reais e gostaria de avaliar se existem cobranças indevidas de seguros obrigatórios embutidos..."
+                        placeholder="Ex: Tenho parcelas de financiamento Chevrolet/Banco GM em aberto de 1.200 reais e gostaria de simular um boleto único para quitação amigável..."
                         value={formData.mensagem}
                         onChange={(e) => handleInputChange('mensagem', e.target.value)}
                         className={`w-full bg-slate-50 border ${
-                          errors.mensagem ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-cyan-100'
-                        } rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 transition-all focus:ring-cyan-100 resize-none`}
+                          errors.mensagem ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-emerald-100'
+                        } rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 transition-all resize-none`}
                       />
                       {errors.mensagem && <span className="text-red-500 text-[10px] block mt-1">{errors.mensagem}</span>}
                     </div>
