@@ -35,15 +35,15 @@ export default function Header({ onOpenPrivacy, onNavigateTo, onOpenConsultation
           
           {/* Logo & Brand */}
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => onNavigateTo('hero')} id="brand-logo">
-            <div className="bg-slate-900 text-white p-2.5 rounded-xl shadow-lg shadow-slate-900/10 flex items-center justify-center border border-slate-800">
-              <Scale className="h-6 w-6 text-emerald-400" />
+            <div className="bg-brand-dark text-white p-2.5 rounded-xl shadow-lg shadow-brand-dark/10 flex items-center justify-center border border-brand-medium/50">
+              <Building2 className="h-6 w-6 text-brand-orange" />
             </div>
             <div>
-              <span className="block font-sans font-extrabold uppercase text-sm tracking-wider text-slate-900">
-                BULGARELLI
+              <span className="block font-sans font-extrabold uppercase text-sm tracking-wider text-slate-900 leading-none mb-1">
+                PASCHOALOTTO
               </span>
               <span className="block font-mono text-[9px] text-gray-500 uppercase tracking-widest font-semibold">
-                Sociedade de Advogados
+                Relacionamento & Crédito
               </span>
             </div>
           </div>
@@ -54,7 +54,7 @@ export default function Header({ onOpenPrivacy, onNavigateTo, onOpenConsultation
               <button
                 key={item.href}
                 onClick={() => onNavigateTo(item.href)}
-                className="text-slate-600 hover:text-emerald-600 font-medium text-xs uppercase tracking-wider cursor-pointer transition-colors"
+                className="text-slate-600 hover:text-brand-orange font-semibold text-xs uppercase tracking-wider cursor-pointer transition-colors"
               >
                 {item.label}
               </button>
@@ -64,15 +64,15 @@ export default function Header({ onOpenPrivacy, onNavigateTo, onOpenConsultation
           {/* Desktop Call to Action Buttons */}
           <div className="hidden lg:flex items-center gap-4" id="desktop-actions">
             <a
-              href="tel:08007250800"
-              className="flex items-center gap-2 text-slate-700 hover:text-emerald-600 text-xs font-semibold py-2 px-3 rounded-lg border border-slate-200 transition-all"
+              href="tel:08007212121"
+              className="flex items-center gap-2 text-slate-700 hover:text-brand-orange text-xs font-semibold py-2 px-3 rounded-lg border border-slate-200 transition-all"
             >
-              <Phone className="h-4 w-4" />
-              0800 725 0800
+              <Phone className="h-4 w-4 text-brand-orange" />
+              0800 721 2121
             </a>
             <button
               onClick={onOpenConsultation}
-              className="bg-slate-900 cursor-pointer hover:bg-slate-800 text-emerald-400 border border-emerald-500/20 text-xs font-bold py-2.5 px-4 rounded-xl uppercase tracking-wider transition-all shadow-md shadow-slate-900/10"
+              className="bg-brand-dark cursor-pointer hover:bg-brand-dark/95 text-white border border-brand-orange/30 text-xs font-bold py-2.5 px-4 rounded-xl uppercase tracking-wider transition-all shadow-md shadow-brand-dark/10"
               id="header-consult-btn"
             >
               Autoatendimento
@@ -83,14 +83,14 @@ export default function Header({ onOpenPrivacy, onNavigateTo, onOpenConsultation
           <div className="flex lg:hidden items-center gap-3" id="mobile-menu-sec">
             <button
               onClick={onOpenConsultation}
-              className="bg-slate-900 hover:bg-slate-800 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold py-1.5 px-2.5 rounded-lg uppercase tracking-wider"
+              className="bg-brand-dark hover:bg-brand-dark/95 text-white border border-brand-orange/30 text-[10px] font-bold py-1.5 px-2.5 rounded-lg uppercase tracking-wider"
               id="mobile-header-consult-btn"
             >
               Autoatendimento
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-700 hover:text-emerald-600 transition-colors rounded-lg bg-gray-50 border border-gray-100"
+              className="p-2 text-slate-700 hover:text-brand-orange transition-colors rounded-lg bg-gray-50 border border-gray-100"
               aria-label="Abrir Menu"
               id="mobile-menu-toggle"
             >
@@ -108,7 +108,7 @@ export default function Header({ onOpenPrivacy, onNavigateTo, onOpenConsultation
               <button
                 key={item.href}
                 onClick={() => handleMobileNav(item.href)}
-                className="w-full text-left py-3 px-4 rounded-lg bg-slate-50 hover:bg-cyan-50 hover:text-cyan-600 text-slate-700 font-medium text-xs uppercase tracking-wider transition-all flex items-center justify-between"
+                className="w-full text-left py-3 px-4 rounded-lg bg-slate-50 hover:bg-brand-orange/5 hover:text-brand-orange text-slate-700 font-medium text-xs uppercase tracking-wider transition-all flex items-center justify-between"
               >
                 <span>{item.label}</span>
                 <ChevronRight className="h-4 w-4 text-slate-400" />
@@ -117,30 +117,30 @@ export default function Header({ onOpenPrivacy, onNavigateTo, onOpenConsultation
 
             <div className="pt-4 border-t border-gray-100 grid grid-cols-2 gap-3">
               <a
-                href="tel:08007250800"
+                href="tel:08007212121"
                 className="flex items-center justify-center gap-2 text-slate-700 font-semibold py-3 px-4 rounded-xl border border-slate-200 text-xs transition-all"
               >
-                <Phone className="h-4 w-4 text-emerald-500" />
-                0800 725 0800
+                <Phone className="h-4 w-4 text-brand-orange" />
+                0800 721 2121
               </a>
               <a
-                href="https://wa.me/551133360800"
+                href="https://wa.me/551431030000?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20o%20atendimento%20da%20Paschoalotto."
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-2 bg-green-600 text-white font-semibold py-3 px-4 rounded-xl text-xs shadow-md shadow-green-600/10 transition-all"
+                className="flex items-center justify-center gap-2 bg-green-600 text-white font-semibold py-3 px-4 rounded-xl text-xs shadow-md shadow-green-600/10 transition-all animate-pulse"
               >
                 WhatsApp
               </a>
             </div>
 
             <div className="text-center pt-3 flex justify-center gap-6 text-[10px] text-gray-500">
-              <button onClick={() => { setMobileMenuOpen(false); onOpenPrivacy('privacy'); }} className="underline hover:text-emerald-600">
+              <button onClick={() => { setMobileMenuOpen(false); onOpenPrivacy('privacy'); }} className="underline hover:text-brand-orange">
                 Privacidade
               </button>
-              <button onClick={() => { setMobileMenuOpen(false); onOpenPrivacy('terms'); }} className="underline hover:text-emerald-600">
+              <button onClick={() => { setMobileMenuOpen(false); onOpenPrivacy('terms'); }} className="underline hover:text-brand-orange">
                 Termos
               </button>
-              <button onClick={() => { setMobileMenuOpen(false); onOpenPrivacy('security'); }} className="underline hover:text-emerald-600">
+              <button onClick={() => { setMobileMenuOpen(false); onOpenPrivacy('security'); }} className="underline hover:text-brand-orange">
                 Compliance OAB
               </button>
             </div>

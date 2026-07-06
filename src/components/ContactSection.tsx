@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, HelpCircle, CheckCircle2, Scale, ExternalLink, RefreshCw } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, HelpCircle, CheckCircle2, Scale, ExternalLink, RefreshCw, Building2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface ContactSectionProps {
@@ -16,7 +16,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
     nome: '',
     email: '',
     telefone: '',
-    demanda: 'Financiamento Bancário / Revisional',
+    demanda: 'Quitação Amigável com Desconto (B2C)',
     mensagem: ''
   });
 
@@ -25,20 +25,20 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
 
   const faqs = [
     {
-      q: 'Como confirmo se meu boleto de quitação ou parcela é verdadeiro?',
-      a: 'Todos os boletos e propostas gerados pela Bulgarelli Sociedade de Advogados são registrados no Banco GM ou Banco correspondente. Você pode conferir a validade digitando a linha digitável ou via DDA direto do aplicativo de seu banco antes de efetuar qualquer pagamento.'
+      q: 'Como posso confirmar se meu acordo ou boleto Paschoalotto é verdadeiro?',
+      a: 'Todos os boletos de acordos gerados pela Paschoalotto são emitidos sob o CNPJ oficial 03.187.351/0001-38 e registrados eletronicamente na Febraban. Você pode validar a legitimidade verificando o DDA (Débito Direto Autorizado) no aplicativo de seu banco ou checando o beneficiário final antes do pagamento.'
     },
     {
-      q: 'Posso parcelar a quitação amigável do meu contrato?',
-      a: 'Sim! Nosso portal de autoatendimento simula e propõe parcelamentos estendidos flexíveis e até 85% de abatimento para liquidação integral à vista.'
+      q: 'Posso parcelar a quitação das minhas parcelas em atraso?',
+      a: 'Sim! Nossos credores parceiros autorizam descontos excepcionais de até 90% para quitação de contratos à vista, além de opções flexíveis de parcelamento do saldo devedor em guias mensais.'
     },
     {
-      q: 'Quais os canais oficiais de negociação da Bulgarelli?',
-      a: 'Nossa central atende de forma unificada pelo número gratuito 0800 725 0800 e pelo WhatsApp institucional (11) 3336-0800. Nunca faça pagamentos para contas de pessoas físicas.'
+      q: 'Quais são os números oficiais de WhatsApp da Paschoalotto?',
+      a: 'Atendemos pelo WhatsApp de Negociação (B2C) no número (14) 3103-0000 e pelo canal institucional comercial (B2B) no número (14) 2121-0000. Lembre-se de sempre conferir o selo verde de conta oficial verificada.'
     },
     {
-      q: 'Como funciona a revisão de juros e seguro embutido?',
-      a: 'Analisamos se no contrato de automóvel foi injetada "venda casada" de apólices não autorizadas ou cobranças abusivas substancialmente acima da média divulgada pelo BACEN na data da assinatura.'
+      q: 'Como minha marca pode contratar os serviços de atendimento ou cobrança?',
+      a: 'Para contratar nossas soluções de BPO, SAC, Atendimento Digital ou Gestão de Ativos, envie uma mensagem para o nosso canal de Novos Negócios comercial@paschoalotto.com.br ou inicie uma conversa pelo WhatsApp (14) 2121-0000.'
     }
   ];
 
@@ -77,7 +77,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
       newErrors.telefone = 'Insira um telefone/WhatsApp completo.';
     }
     if (!formData.mensagem.trim()) {
-      newErrors.mensagem = 'Descreva resumidamente o seu contrato ou situação.';
+      newErrors.mensagem = 'Descreva brevemente sua necessidade ou contrato.';
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -97,10 +97,19 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
       nome: '',
       email: '',
       telefone: '',
-      demanda: 'Financiamento Bancário / Revisional',
+      demanda: 'Quitação Amigável com Desconto (B2C)',
       mensagem: ''
     });
     setFormState('idle');
+  };
+
+  const getWhatsAppLink = () => {
+    const isB2B = formData.demanda.includes('B2B') || formData.demanda.includes('Corporativas');
+    const number = isB2B ? '551421210000' : '551431030000';
+    const text = isB2B 
+      ? `Olá, comercial Paschoalotto. Realizei o preenchimento no site para soluções empresariais em nome de ${formData.nome}. Gostaria de receber uma proposta comercial.`
+      : `Olá, equipe Paschoalotto. Realizei o preenchimento da ficha cadastral para a área de ${formData.demanda} sob o nome de ${formData.nome}. Desejo consultar minhas opções de acordo.`;
+    return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
   };
 
   return (
@@ -112,60 +121,60 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
           {/* Left Column: Contact details + FAQs */}
           <div className="space-y-12">
             <div className="space-y-4">
-              <span className="text-xs font-bold tracking-wider text-cyan-600 uppercase font-mono bg-cyan-100/60 py-1.5 px-3.5 rounded-full inline-block">
+              <span className="text-xs font-bold tracking-wider text-brand-orange uppercase font-mono bg-brand-orange/10 py-1.5 px-3.5 rounded-full inline-block">
                 CENTRAL DE ATENDIMENTO
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-                Fale com nossos especialistas
+                Fale com nossos especialistas em Relacionamento
               </h2>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Nossa banca jurídica recebe e examina seus contratos de forma célere. Envie-nos uma mensagem informando seu caso ou utilize os canais corporativos abaixo para acelerar o seu atendimento.
+                Prontos para te atender com o respeito, a agilidade e a segurança que você merece. Preencha os campos ao lado para direcionar seu caso ou utilize nossos contatos de atendimento direto.
               </p>
             </div>
 
             {/* Contacts Info list */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6" id="contact-info-list">
               <div className="p-5 bg-white border border-gray-100 rounded-xl space-y-2">
-                <div className="flex items-center gap-3 text-emerald-600">
+                <div className="flex items-center gap-3 text-brand-orange">
                   <Phone className="h-5 w-5" />
-                  <span className="text-xs font-bold uppercase tracking-wider font-mono">Canais de Voz</span>
+                  <span className="text-xs font-bold uppercase tracking-wider font-mono">Central de Atendimento</span>
                 </div>
                 <p className="text-sm font-semibold text-slate-900 leading-snug">
-                  0800 725 0800 <br />
-                  (11) 3336-0800
+                  0800 721 2100 <br />
+                  (14) 3103-0000
                 </p>
                 <span className="text-[10px] text-gray-500 block">Segunda a Sexta, das 08h às 20h | Sábados, das 08h às 14h</span>
               </div>
 
               <div className="p-5 bg-white border border-gray-100 rounded-xl space-y-2">
-                <div className="flex items-center gap-3 text-emerald-600">
+                <div className="flex items-center gap-3 text-brand-orange">
                   <Mail className="h-5 w-5" />
-                  <span className="text-xs font-bold uppercase tracking-wider font-mono">E-mail Corporativo</span>
+                  <span className="text-xs font-bold uppercase tracking-wider font-mono">Contatos Digitais</span>
                 </div>
                 <p className="text-sm font-semibold text-slate-900 leading-snug">
-                  atendimento@bulgarelliadvocacia.com.br <br />
-                  contato@bulgarelliadv.com.br
+                  ouvidoria@paschoalotto.com.br <br />
+                  comercial@paschoalotto.com.br
                 </p>
-                <span className="text-[10px] text-gray-500 block">Retorno em até 2 horas úteis</span>
+                <span className="text-[10px] text-gray-500 block">Resposta ágil em dias úteis</span>
               </div>
 
               <div className="p-5 bg-white border border-gray-100 rounded-xl col-span-1 sm:col-span-2 space-y-2">
-                <div className="flex items-center gap-3 text-emerald-600">
+                <div className="flex items-center gap-3 text-brand-orange">
                   <MapPin className="h-5 w-5" />
-                  <span className="text-xs font-bold uppercase tracking-wider font-mono">Oficina Executiva Físico</span>
+                  <span className="text-xs font-bold uppercase tracking-wider font-mono">Sede Administrativa Principal</span>
                 </div>
                 <p className="text-sm font-semibold text-slate-900 leading-snug">
-                  Avenida Paulista, 1776, 3º andar, sala 301, Bela Vista <br />
-                  São Paulo - SP, CEP 01310-200
+                  Rua Joaquim Anacleto Bueno, 1-45, Jardim Estoril <br />
+                  Bauru - SP, CEP 17012-320
                 </p>
-                <span className="text-[10px] text-gray-500 block">Atendimento digital nacional e presencial agendado corporativo</span>
+                <span className="text-[10px] text-gray-500 block">Estrutura inteligente para alta escala nacional</span>
               </div>
             </div>
 
             {/* Quick Accordion Section (FAQ) */}
             <div id="duvidas" className="space-y-6 pt-6 border-t border-gray-200">
               <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <HelpCircle className="h-5 w-5 text-emerald-600 shrink-0" />
+                <HelpCircle className="h-5 w-5 text-brand-orange shrink-0" />
                 Dúvidas Gerais Frequentes
               </h3>
               
@@ -183,7 +192,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
 
           {/* Right Column: Dynamic Form */}
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative overflow-hidden" id="contact-form-container">
-            <div className="absolute top-0 left-0 w-32 h-32 bg-emerald-100/40 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 left-0 w-32 h-32 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none" />
             
             <AnimatePresence mode="wait">
               {formState === 'submitted' ? (
@@ -195,7 +204,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                   className="py-12 flex flex-col items-center text-center space-y-6"
                   id="form-success-state"
                 >
-                  <div className="h-16 w-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center border border-emerald-200">
+                  <div className="h-16 w-16 bg-brand-orange/10 text-brand-orange rounded-full flex items-center justify-center border border-brand-orange/20">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
                   
@@ -204,25 +213,25 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                       Obrigado, {formData.nome.split(' ')[0]}!
                     </h3>
                     <p className="text-xs text-gray-600 max-w-sm">
-                      Sua solicitação de atendimento foi recebida com sucesso. Nossa célula de renegociação securitária e bancária da Bulgarelli avaliará os dados informados do seu contrato para propor descontos.
+                      Seus dados foram integrados. Para garantir prioridade absoluta de atendimento, clique no botão abaixo para falar agora mesmo no nosso WhatsApp correspondente ao seu interesse.
                     </p>
                   </div>
 
                   <div className="bg-slate-50 border border-slate-100 p-4 rounded-xl w-full text-left space-y-2 text-xs">
-                    <p className="text-slate-500 font-mono font-semibold uppercase tracking-wider text-[10px]">Resumo da Solicitação:</p>
-                    <p className="text-slate-700"><strong>Serviço de Interesse:</strong> {formData.demanda}</p>
-                    <p className="text-slate-700"><strong>Canal Retorno:</strong> {formData.telefone} | {formData.email}</p>
+                    <p className="text-slate-500 font-mono font-semibold uppercase tracking-wider text-[10px]">Dados da Solicitação:</p>
+                    <p className="text-slate-700"><strong>Interesse:</strong> {formData.demanda}</p>
+                    <p className="text-slate-700"><strong>Contato:</strong> {formData.telefone} | {formData.email}</p>
                   </div>
 
                   <div className="w-full space-y-3">
                     <a
-                      href={`https://wa.me/551133360800?text=${encodeURIComponent(`Olá, equipe Bulgarelli. Acabei de realizar o preenchimento da ficha cadastral para a área de ${formData.demanda} sob o nome de ${formData.nome}. Gostaria de agilizar meu autoatendimento.`)}`}
+                      href={getWhatsAppLink()}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-xs uppercase tracking-wider shadow-lg shadow-green-600/10 transition-all cursor-pointer"
+                      className="w-full bg-green-655 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-xs uppercase tracking-wider shadow-lg shadow-green-600/10 transition-all cursor-pointer"
                       id="whats-direct-form"
                     >
-                      Agilizar por WhatsApp
+                      Conversar no WhatsApp
                       <ExternalLink className="h-3.5 w-3.5" />
                     </a>
                     
@@ -231,7 +240,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                       className="text-slate-500 font-medium text-xs hover:text-slate-800 underline transition-all bg-transparent"
                       id="reset-form-btn"
                     >
-                      Enviar outra mensagem
+                      Enviar outro interesse
                     </button>
                   </div>
                 </motion.div>
@@ -245,10 +254,10 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                 >
                   <div className="space-y-1">
                     <h3 className="font-sans font-extrabold text-xl text-slate-900">
-                      Envie sua Proposta de Análise
+                      Canal Digital Integrado
                     </h3>
                     <p className="text-xs text-gray-500">
-                      Garantimos sigilo absoluto garantido pelo Código de Ética da OAB.
+                      B2C de Negociação de Dívidas ou B2B de Soluções Corporativas.
                     </p>
                   </div>
 
@@ -257,16 +266,16 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                     {/* Nome Input */}
                     <div>
                       <label htmlFor="form-nome" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1 font-mono">
-                        Seu nome completo
+                        Seu nome completo / Empresa
                       </label>
                       <input
                         id="form-nome"
                         type="text"
-                        placeholder="Ex: João da Silva Santos"
+                        placeholder="Ex: João da Silva Santos / Nome da Empresa"
                         value={formData.nome}
                         onChange={(e) => handleInputChange('nome', e.target.value)}
                         className={`w-full bg-slate-50 border ${
-                          errors.nome ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-cyan-100'
+                          errors.nome ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-brand-orange/20'
                         } rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 transition-all`}
                       />
                       {errors.nome && <span className="text-red-500 text-[10px] block mt-1">{errors.nome}</span>}
@@ -276,7 +285,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                       {/* E-mail Input */}
                       <div>
                         <label htmlFor="form-email" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1 font-mono">
-                          E-mail para retorno
+                          E-mail corporativo / pessoal
                         </label>
                         <input
                           id="form-email"
@@ -285,7 +294,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                           value={formData.email}
                           onChange={(e) => handleInputChange('email', e.target.value)}
                           className={`w-full bg-slate-50 border ${
-                            errors.email ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-cyan-100'
+                            errors.email ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-brand-orange/20'
                           } rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 transition-all`}
                         />
                         {errors.email && <span className="text-red-500 text-[10px] block mt-1">{errors.email}</span>}
@@ -303,7 +312,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                           value={formData.telefone}
                           onChange={handlePhoneMask}
                           className={`w-full bg-slate-50 border ${
-                            errors.telefone ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-cyan-100'
+                            errors.telefone ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-brand-orange/20'
                           } rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 transition-all`}
                         />
                         {errors.telefone && <span className="text-red-500 text-[10px] block mt-1">{errors.telefone}</span>}
@@ -313,35 +322,35 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                     {/* Area Select */}
                     <div>
                       <label htmlFor="form-demanda" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1 font-mono">
-                        Principal interesse / Área de negociação
+                        Seu principal objetivo
                       </label>
                       <select
                         id="form-demanda"
                         value={formData.demanda}
                         onChange={(e) => handleInputChange('demanda', e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-emerald-100 transition-all text-slate-700 font-sans"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-brand-orange/20 transition-all text-slate-700 font-sans"
                       >
-                        <option value="Financiamento Bancário / Revisional">Financiamento de Veículos / Revisional de Juros</option>
-                        <option value="Quitação Amigável com Desconto">Quitação Amigável com Desconto (Acordo Fácil)</option>
-                        <option value="Emissão de 2ª via de Boleto Registrado">Emissão de 2ª via de Boleto Registrado</option>
-                        <option value="Cessão de Crédito ou Assuntos Corporativos">Cessão de Créditos / Direito de Empresas</option>
-                        <option value="Outras demandas administrativas ou cíveis">Outros assuntos cíveis complexos</option>
+                        <option value="Quitação Amigável com Desconto (B2C)">Negociação de CPF em atraso (B2C)</option>
+                        <option value="Emissão de 2ª via de Boleto Paschoalotto">Emitir segunda via de boleto (B2C)</option>
+                        <option value="Contratação de Soluções de Cobrança / SAC (B2B)">Parceria / Soluções Comerciais para Empresas (B2B)</option>
+                        <option value="BPO e Tecnologia Integrada com IA (B2B)">Tecnologia Inteligente e Agentes Virtuais (B2B)</option>
+                        <option value="Dúvidas ou Outros Relacionamentos">Outros Relacionamentos / Ouvidoria</option>
                       </select>
                     </div>
 
                     {/* Mensagem Area */}
                     <div>
                       <label htmlFor="form-mensagem" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1 font-mono">
-                        Resumo do seu caso / Dados do contrato (Banco, veículo, parcelas)
+                        Resumo da necessidade / Dados do Contrato ou Nome da Empresa
                       </label>
                       <textarea
                         id="form-mensagem"
                         rows={3}
-                        placeholder="Ex: Tenho parcelas de financiamento Chevrolet/Banco GM em aberto de 1.200 reais e gostaria de simular um boleto único para quitação amigável..."
+                        placeholder="Escreva aqui brevemente o que você precisa..."
                         value={formData.mensagem}
                         onChange={(e) => handleInputChange('mensagem', e.target.value)}
                         className={`w-full bg-slate-50 border ${
-                          errors.mensagem ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-emerald-100'
+                          errors.mensagem ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-brand-orange/20'
                         } rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 transition-all resize-none`}
                       />
                       {errors.mensagem && <span className="text-red-500 text-[10px] block mt-1">{errors.mensagem}</span>}
@@ -360,7 +369,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                         </>
                       ) : (
                         <>
-                          Solicitar Diagnóstico Gratuito
+                          Conectar Canal de Atendimento
                           <Send className="h-4 w-4" />
                         </>
                       )}

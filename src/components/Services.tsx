@@ -1,10 +1,5 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React from 'react';
-import { ShieldCheck, HeartPulse, Scale, RefreshCw, FileText, Landmark, HelpCircle, HardHat, FileWarning } from 'lucide-react';
+import { ShieldCheck, HeartPulse, Scale, RefreshCw, FileText, Landmark, HelpCircle, HardHat, FileWarning, MessageSquare } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface ServicesProps {
@@ -14,46 +9,52 @@ interface ServicesProps {
 export default function Services({ onContactFormFocus }: ServicesProps) {
   const list = [
     {
-      icon: <FileText className="h-8 w-8 text-emerald-600" />,
-      title: 'Recuperação de Ativos e Cobrança Extrajudicial',
-      short: 'Quitação amigável e restabelecimento de crédito',
-      desc: 'Atuação especializada na regularização de carteiras de empréstimos, consórcios e financiamentos de automóveis Banco GM / Chevrolet, visando acordos céleres com altos descontos sobre juros devidos.',
-      detail: 'Abordagem humana e respeitosa, estruturada sob as regras do Código de Defesa do Consumidor e em total conformidade com a LGPD.'
+      icon: <FileText className="h-8 w-8 text-brand-orange" />,
+      title: 'Recuperação de Crédito & Cobrança Amigável',
+      short: 'Soluções de cobrança ativa, receptiva e digital',
+      desc: 'Abordagem especializada com foco na reabilitação financeira do consumidor. Oferecemos as melhores propostas com descontos reais aprovados diretamente pelos credores.',
+      detail: 'Negociações humanizadas estruturadas sob as regras do Código de Defesa do Consumidor e em total conformidade com a LGPD.',
+      link: 'https://wa.me/551431030000?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20minhas%20pend%C3%AAncias%20de%20cr%C3%A9dito.'
     },
     {
-      icon: <Landmark className="h-8 w-8 text-emerald-600" />,
-      title: 'Defesa em Juros e Revisão Bancária',
-      short: 'Mapeamento de encargos abusivos em financiamentos',
-      desc: 'Análise técnica minuciosa de taxas de juros contratuais que superam as médias de mercado. Identificação de cobranças ilegais que oneram o Custo Efetivo Total (CET) do veículo.',
-      detail: 'Suspensão de ações judiciais de busca e apreensão e auxílio qualificado no alongamento seguro de prazos e amortização programada do saldo devedor.'
+      icon: <MessageSquare className="h-8 w-8 text-brand-orange" />,
+      title: 'Atendimento Omnichannel & CX',
+      short: 'Experiência completa e integrada de relacionamento',
+      desc: 'Central unificada de atendimento (SAC, Ouvidoria, Backoffice) operando em canais integrados de texto, voz, e-mail e mídias sociais para alto índice de resolutividade.',
+      detail: 'Uso de tecnologias integradas para proporcionar jornadas fluidas e resoluções eficientes no primeiro contato.',
+      link: 'https://wa.me/551421210000?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20de%20SAC%20e%20Atendimento%20Omnichannel.'
     },
     {
-      icon: <ShieldCheck className="h-8 w-8 text-emerald-600" />,
-      title: 'Cessão de Crédito e Assuntos Corporativos',
-      short: 'Consultoria para cessões bilaterais de grande porte',
-      desc: 'Suporte especializado em estruturação contratual, validação de garantias fiduciárias, análise de risco em cessões de carteiras e governança corporativa de crédito.',
-      detail: 'Práticas integradas e alinhadas aos mais modernos conceitos jurídicos do mercado empresarial financeiro e auditorias sistêmicas.'
+      icon: <RefreshCw className="h-8 w-8 text-brand-orange" />,
+      title: 'Agentes Digitais & Inteligência Artificial',
+      short: 'Tecnologia cognitiva integrada de última geração',
+      desc: 'Desenvolvemos assistentes de voz e texto inteligentes com processamento de linguagem natural (NLP) para agilizar acordos e automatizar interações de forma humanizada.',
+      detail: 'Integrações seguras com WhatsApp Business API e os principais sistemas de gestão do mercado financeiro.',
+      link: 'https://wa.me/551421210000?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20de%20IA%20e%20Agentes%20Digitais.'
     },
     {
-      icon: <FileWarning className="h-8 w-8 text-emerald-600" />,
-      title: 'Combate à Venda Casada de Seguros',
-      short: 'Extirpação de tarifas ocultas em financiamentos',
-      desc: 'Impugnação de prêmios de seguro prestamistas ou de proteção financeira embutidos de forma obrigatória em seus contratos sem consentimento prévio claro.',
-      detail: 'Exigência de estorno ou compensação de tarifas de avaliação e taxas de cadastro abusivas não usufruídas na pactuação.'
+      icon: <ShieldCheck className="h-8 w-8 text-brand-orange" />,
+      title: 'Acordo Fácil - Autoatendimento',
+      short: 'Ambiente seguro para renegociação autônoma',
+      desc: 'Plataforma digital integrada onde o próprio usuário pode consultar seu CPF em sigilo absoluto, visualizar descontos personalizados e gerar boletos registrados Febraban.',
+      detail: 'Tecnologia avançada antifraude para a segurança total do pagamento do seu boleto de acordo.',
+      link: 'https://wa.me/551431030000?text=Ol%C3%A1!%20Quero%20emitir%20a%20segunda%20via%20do%20meu%20boleto%20de%20acordo%20Paschoalotto.'
     },
     {
-      icon: <Scale className="h-8 w-8 text-emerald-600" />,
-      title: 'Acordo Fácil - Autoatendimento Inteligente',
-      short: 'Fomento a conciliações de forma rápida e segura',
-      desc: 'Integração de canais automatizados sob tutela jurídica para desburocratizar a emissão de 2ª via de parcelas vigentes e quitações à vista, combatendo boletos falsos na internet.',
-      detail: 'Prazos flexibilizados de liquidação e reentrada em fluxos regulares de pagamento com respaldo legal de ponta a ponta.'
+      icon: <Landmark className="h-8 w-8 text-brand-orange" />,
+      title: 'Soluções de Cobrança para Grandes Empresas',
+      short: 'Gestão estratégica de ativos corporativos',
+      desc: 'Atuamos como parceiros oficiais dos maiores bancos, varejistas, operadoras de telecomunicações e distribuidoras de energia do país, com alta escalabilidade.',
+      detail: 'Relatórios gerenciais completos e monitoramento de indicadores de performance em tempo real.',
+      link: 'https://wa.me/551421210000?text=Ol%C3%A1!%20Quero%20contratar%20a%20Paschoalotto%20para%20recuperar%20cr%C3%A9dito%20da%20minha%20empresa.'
     },
     {
-      icon: <HardHat className="h-8 w-8 text-emerald-600" />,
-      title: 'Contencioso Geral & Compliance de Crédito',
-      short: 'Blindagem jurídica e assessoria regulatória OAB',
-      desc: 'Representação em litígios complexos cíveis de natureza financeira, reduzindo passivos processuais, mitigando fraudes e garantindo segurança jurídica nas negociações.',
-      detail: 'Atendimento estrito das diretrizes éticas brasileiras, garantindo transparência impecável e solidez no mercado financeiro.'
+      icon: <FileWarning className="h-8 w-8 text-brand-orange" />,
+      title: 'Auditoria de Cadastro & Higienização (BPO)',
+      short: 'Enriquecimento de dados e inteligência cadastral',
+      desc: 'Soluções completas de tratamento de base de dados, higienização, enriquecimento cadastral e modelagem preditiva para maximizar a assertividade dos contatos.',
+      detail: 'Processamento veloz sob rigorosos padrões de segurança de dados e total aderência à legislação brasileira.',
+      link: 'https://wa.me/551421210000?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20higieniza%C3%A7%C3%A3o%20de%20dados%20e%20BPO.'
     }
   ];
 
@@ -63,14 +64,14 @@ export default function Services({ onContactFormFocus }: ServicesProps) {
         
         {/* Title */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="text-xs font-bold tracking-wider text-emerald-600 uppercase font-mono bg-emerald-100/60 py-1.5 px-3.5 rounded-full inline-block">
-            NOSSOS SERVIÇOS E COMPETÊNCIAS
+          <span className="text-xs font-bold tracking-wider text-brand-orange uppercase font-mono bg-brand-orange/10 py-1.5 px-3.5 rounded-full inline-block">
+            NOSSAS SOLUÇÕES E TECNOLOGIAS
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Gestão Estratégica de Regularização de Crédito e Assuntos Bancários
+            Relacionamento Inteligente e Recuperação de Crédito com Foco em Resultados
           </h2>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-            Unimos vanguarda tecnológica a uma atuação jurídica de excelência ética sob coordenação de quem entende o setor financeiro. Oferecemos as melhores propostas e caminhos para equilibrar pendências.
+            Unimos vanguarda tecnológica a uma abordagem humanizada para aproximar pessoas e empresas. Escolha o serviço desejado e conecte-se com nossa central de atendimento em segundos.
           </p>
         </div>
 
@@ -92,7 +93,7 @@ export default function Services({ onContactFormFocus }: ServicesProps) {
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 text-base leading-snug">{item.title}</h3>
-                  <p className="text-[11px] font-medium text-emerald-700 tracking-wide mt-0.5">{item.short}</p>
+                  <p className="text-[11px] font-medium text-brand-orange tracking-wide mt-0.5">{item.short}</p>
                 </div>
                 <p className="text-xs text-gray-650 leading-relaxed font-sans pt-1">
                   {item.desc}
@@ -103,36 +104,40 @@ export default function Services({ onContactFormFocus }: ServicesProps) {
               </div>
 
               <div className="pt-6">
-                <button
-                  onClick={onContactFormFocus}
-                  className="w-full cursor-pointer bg-slate-50 shadow-sm hover:bg-slate-900 hover:text-white border border-slate-200 text-slate-800 font-sans font-bold py-2.5 px-4 rounded-xl text-xs uppercase tracking-wider transition-all"
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-full text-center block cursor-pointer bg-slate-50 hover:bg-slate-900 hover:text-white border border-slate-200 text-slate-800 font-sans font-bold py-2.5 px-4 rounded-xl text-xs uppercase tracking-wider transition-all"
                   id={`service-talk-btn-${index}`}
                 >
-                  Consultar Viabilidade
-                </button>
+                  Falar no WhatsApp
+                </a>
               </div>
             </motion.div>
           ))}
         </div>
 
         {/* Help Banner */}
-        <div className="bg-slate-900 rounded-2xl text-white p-8 md:p-12 mt-16 flex flex-col md:flex-row items-center justify-between gap-8 border border-slate-800 shadow-xl overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-brand-dark rounded-2xl text-white p-8 md:p-12 mt-16 flex flex-col md:flex-row items-center justify-between gap-8 border border-slate-800 shadow-xl overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-brand-pink/10 rounded-full blur-3xl pointer-events-none" />
           <div className="space-y-3 max-w-2xl text-center md:text-left relative z-10">
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
-              Preocupado com ações de busca e apreensão ou quer regularizar seu veículo?
+              Deseja contratar as soluções da Paschoalotto para a sua Empresa?
             </h3>
             <p className="text-xs sm:text-sm text-gray-300">
-              Negociamos parcelas vencidas e futuras em canais amigáveis de cooperação mútua com os principais credenciados do país. Regularize o seu score e resguarde sua estabilidade orçamentária rapidamente.
+              Oferecemos plataformas avançadas de cobrança omnichannel, SAC qualificado, inteligência artificial integrada e recuperação especializada de ativos com alta escala para sua carteira.
             </p>
           </div>
-          <button
-            onClick={onContactFormFocus}
-            className="shrink-0 cursor-pointer bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 rounded-xl text-xs uppercase tracking-wider transition-all shadow-lg shadow-emerald-600/20 active:scale-[0.98] w-full md:w-auto relative z-10"
+          <a
+            href="https://wa.me/551421210000?text=Olá!%20Gostaria%20de%20solicitar%20uma%20apresentação%20comercial%20da%20Paschoalotto%20para%20minha%20empresa."
+            target="_blank"
+            rel="noreferrer"
+            className="shrink-0 cursor-pointer text-center bg-brand-orange hover:bg-brand-orange/90 text-white font-bold py-4 px-8 rounded-xl text-xs uppercase tracking-wider transition-all shadow-lg shadow-brand-orange/20 active:scale-[0.98] w-full md:w-auto relative z-10 animate-pulse"
             id="emergency-consult-btn"
           >
-            Falar com nossa Equipe pelo WhatsApp
-          </button>
+            Falar com Consultor B2B
+          </a>
         </div>
       </div>
     </section>

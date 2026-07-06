@@ -4,6 +4,12 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-dark: #002350; /* Azul Marinho Profundo Paschoalotto */
+  --color-brand-medium: #0056C6; /* Azul Real Corporativo */
+  --color-brand-orange: #0066FF; /* Azul Elétrico Vibrante (CTAs de Alta Conversão) */
+  --color-brand-pink: #38BDF8; /* Azul Celeste/Sky de realce */
+  --color-brand-light: #F4F8FC; /* Branco Gelo/Fundo cool light */
 }
 
 /* Custom global smooth scrolling behavior */
