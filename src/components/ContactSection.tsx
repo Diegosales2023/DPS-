@@ -1,28 +1,11 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, HelpCircle, CheckCircle2, Scale, ExternalLink, RefreshCw, Building2 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import React from 'react';
+import { Mail, Phone, MapPin, HelpCircle, CheckCircle2, Building2, ExternalLink, ShieldCheck, MessageSquare, ArrowRight } from 'lucide-react';
 
 interface ContactSectionProps {
   formRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export default function ContactSection({ formRef }: ContactSectionProps) {
-  const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    telefone: '',
-    demanda: 'Quitação Amigável com Desconto (B2C)',
-    mensagem: ''
-  });
-
-  const [formState, setFormState] = useState<'idle' | 'submitting' | 'submitted'>('idle');
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
   const faqs = [
     {
       q: 'Como posso confirmar se meu acordo ou boleto Paschoalotto é verdadeiro?',
@@ -42,76 +25,6 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
     }
   ];
 
-  const handlePhoneMask = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let val = e.target.value.replace(/\D/g, '');
-    if (val.length > 11) val = val.substring(0, 11);
-
-    if (val.length > 10) {
-      val = val.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
-    } else if (val.length > 6) {
-      val = val.replace(/^(\d{2})(\d{4})(\d{0,4})$/, '($1) $2-$3');
-    } else if (val.length > 2) {
-      val = val.replace(/^(\d{2})(\d{0,5})$/, '($1) $2');
-    }
-
-    setFormData({ ...formData, telefone: val });
-    if (errors.telefone) setErrors({ ...errors, telefone: '' });
-  };
-
-  const handleInputChange = (field: keyof typeof formData, value: string) => {
-    setFormData({ ...formData, [field]: value });
-    if (errors[field]) setErrors({ ...errors, [field]: '' });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const newErrors: Record<string, string> = {};
-
-    if (!formData.nome.trim()) {
-      newErrors.nome = 'Nome completo é obrigatório.';
-    }
-    if (!formData.email.trim() || !formData.email.includes('@')) {
-      newErrors.email = 'Insira um e-mail válido.';
-    }
-    if (!formData.telefone.trim() || formData.telefone.length < 14) {
-      newErrors.telefone = 'Insira um telefone/WhatsApp completo.';
-    }
-    if (!formData.mensagem.trim()) {
-      newErrors.mensagem = 'Descreva brevemente sua necessidade ou contrato.';
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-
-    // Simulate submission
-    setFormState('submitting');
-    setTimeout(() => {
-      setFormState('submitted');
-    }, 1500);
-  };
-
-  const handleReset = () => {
-    setFormData({
-      nome: '',
-      email: '',
-      telefone: '',
-      demanda: 'Quitação Amigável com Desconto (B2C)',
-      mensagem: ''
-    });
-    setFormState('idle');
-  };
-
-  const getWhatsAppLink = () => {
-    const isB2B = formData.demanda.includes('B2B') || formData.demanda.includes('Corporativas');
-    const number = isB2B ? '551421210000' : '551431030000';
-    const text = isB2B 
-      ? `Olá, comercial Paschoalotto. Realizei o preenchimento no site para soluções empresariais em nome de ${formData.nome}. Gostaria de receber uma proposta comercial.`
-      : `Olá, equipe Paschoalotto. Realizei o preenchimento da ficha cadastral para a área de ${formData.demanda} sob o nome de ${formData.nome}. Desejo consultar minhas opções de acordo.`;
-    return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
-  };
-
   return (
     <section id="contato" className="py-20 bg-slate-50 border-t border-gray-100 font-sans" ref={formRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -128,7 +41,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                 Fale com nossos especialistas em Relacionamento
               </h2>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Prontos para te atender com o respeito, a agilidade e a segurança que você merece. Preencha os campos ao lado para direcionar seu caso ou utilize nossos contatos de atendimento direto.
+                Prontos para te atender com o respeito, a agilidade e a segurança que você merece. Conecte-se instantaneamente conosco através dos nossos contatos de atendimento direto ou canais digitais.
               </p>
             </div>
 
@@ -190,195 +103,120 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
 
           </div>
 
-          {/* Right Column: Dynamic Form */}
-          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative overflow-hidden" id="contact-form-container">
+          {/* Right Column: Informative Channels Panel (Replaces the Form completely) */}
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative overflow-hidden" id="contact-info-panel">
             <div className="absolute top-0 left-0 w-32 h-32 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none" />
             
-            <AnimatePresence mode="wait">
-              {formState === 'submitted' ? (
-                <motion.div
-                  key="submitted"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="py-12 flex flex-col items-center text-center space-y-6"
-                  id="form-success-state"
-                >
-                  <div className="h-16 w-16 bg-brand-orange/10 text-brand-orange rounded-full flex items-center justify-center border border-brand-orange/20">
-                    <CheckCircle2 className="h-8 w-8" />
+            <div className="space-y-6 relative z-10">
+              <div className="space-y-1">
+                <h3 className="font-sans font-extrabold text-xl text-slate-900">
+                  Canais Oficiais de Relacionamento
+                </h3>
+                <p className="text-xs text-gray-500">
+                  Conecte-se com os setores corretos da Paschoalotto em poucos segundos.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {/* Channel 1: Negociação (B2C) */}
+                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 space-y-3 hover:border-brand-orange/20 transition-all">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2.5">
+                      <div className="bg-brand-orange/10 p-2 rounded-xl text-brand-orange">
+                        <MessageSquare className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-extrabold uppercase font-mono tracking-wide text-slate-900">
+                          Negociação de Acordos (B2C)
+                        </h4>
+                        <p className="text-[10px] text-gray-500">Para clientes com parcelas ou contas em atraso</p>
+                      </div>
+                    </div>
+                    <span className="text-[9px] font-mono bg-brand-orange/15 text-brand-orange px-2 py-0.5 rounded-full font-bold">WhatsApp Oficial</span>
                   </div>
                   
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-slate-900 font-sans">
-                      Obrigado, {formData.nome.split(' ')[0]}!
-                    </h3>
-                    <p className="text-xs text-gray-600 max-w-sm">
-                      Seus dados foram integrados. Para garantir prioridade absoluta de atendimento, clique no botão abaixo para falar agora mesmo no nosso WhatsApp correspondente ao seu interesse.
-                    </p>
+                  <p className="text-xs text-gray-600 leading-relaxed font-sans">
+                    Fale diretamente no canal oficial verificado de cobrança Paschoalotto. Consulte seu CPF em total sigilo, visualize propostas com até 90% de desconto e emita boletos registrados Febraban de forma segura.
+                  </p>
+                  
+                  <a
+                    href="https://wa.me/551431030000?text=Olá!%20Gostaria%20de%20consultar%20minhas%20pendências%20de%20crédito%20com%20a%20Paschoalotto."
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full mt-2 cursor-pointer bg-green-600 hover:bg-green-755 text-white font-sans font-bold py-3 px-4 rounded-xl shadow-md active:scale-[0.98] transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-wider"
+                    id="whats-b2c-direct-btn"
+                  >
+                    Iniciar Conversa no WhatsApp
+                    <ExternalLink className="h-3.5 w-3.5 text-white" />
+                  </a>
+                </div>
+
+                {/* Channel 2: Parcerias & Novos Negócios (B2B) */}
+                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-100 space-y-3 hover:border-brand-orange/20 transition-all">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2.5">
+                      <div className="bg-slate-900/10 p-2 rounded-xl text-slate-900">
+                        <Building2 className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-extrabold uppercase font-mono tracking-wide text-slate-900">
+                          Soluções Empresariais (B2B)
+                        </h4>
+                        <p className="text-[10px] text-gray-500">Para grandes corporações e marcas parceiras</p>
+                      </div>
+                    </div>
+                    <span className="text-[9px] font-mono bg-slate-900/10 text-slate-850 px-2 py-0.5 rounded-full font-bold">Comercial</span>
                   </div>
 
-                  <div className="bg-slate-50 border border-slate-100 p-4 rounded-xl w-full text-left space-y-2 text-xs">
-                    <p className="text-slate-500 font-mono font-semibold uppercase tracking-wider text-[10px]">Dados da Solicitação:</p>
-                    <p className="text-slate-700"><strong>Interesse:</strong> {formData.demanda}</p>
-                    <p className="text-slate-700"><strong>Contato:</strong> {formData.telefone} | {formData.email}</p>
-                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed font-sans">
+                    Quer contratar as soluções da maior referência nacional de Customer Experience, cobrança omnichannel, BPO de atendimento ou inteligência artificial? Conecte-se com nossa equipe comercial.
+                  </p>
 
-                  <div className="w-full space-y-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                     <a
-                      href={getWhatsAppLink()}
+                      href="https://wa.me/551421210000?text=Olá!%20Gostaria%20de%20solicitar%20uma%20apresentação%20comercial%20das%20soluções%20da%20Paschoalotto%20para%20minha%20empresa."
                       target="_blank"
                       rel="noreferrer"
-                      className="w-full bg-green-655 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-2 text-xs uppercase tracking-wider shadow-lg shadow-green-600/10 transition-all cursor-pointer"
-                      id="whats-direct-form"
+                      className="cursor-pointer bg-slate-900 hover:bg-slate-800 text-white font-sans font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-[11px] uppercase tracking-wider"
+                      id="whats-b2b-direct-btn"
                     >
-                      Conversar no WhatsApp
-                      <ExternalLink className="h-3.5 w-3.5" />
+                      WhatsApp Comercial
                     </a>
-                    
-                    <button
-                      onClick={handleReset}
-                      className="text-slate-500 font-medium text-xs hover:text-slate-800 underline transition-all bg-transparent"
-                      id="reset-form-btn"
+                    <a
+                      href="mailto:comercial@paschoalotto.com.br"
+                      className="cursor-pointer bg-white border border-slate-200 hover:bg-slate-50 text-slate-800 font-sans font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-[11px] uppercase tracking-wider"
+                      id="email-b2b-direct-btn"
                     >
-                      Enviar outro interesse
-                    </button>
+                      E-mail Comercial
+                    </a>
                   </div>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="form"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="space-y-6"
-                >
-                  <div className="space-y-1">
-                    <h3 className="font-sans font-extrabold text-xl text-slate-900">
-                      Canal Digital Integrado
-                    </h3>
-                    <p className="text-xs text-gray-500">
-                      B2C de Negociação de Dívidas ou B2B de Soluções Corporativas.
-                    </p>
+                </div>
+
+                {/* Channel 3: Ouvidoria e Canal Ético */}
+                <div className="p-4 bg-white rounded-xl border border-slate-100 flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-2.5">
+                    <ShieldCheck className="h-5 w-5 text-brand-orange shrink-0" />
+                    <div>
+                      <h4 className="text-[11px] font-bold text-slate-900 uppercase font-mono tracking-wide">Ouvidoria de Canal Ético</h4>
+                      <p className="text-[10px] text-gray-500 font-sans">Relatos, elogios ou reclamações formais</p>
+                    </div>
                   </div>
+                  <a
+                    href="mailto:ouvidoria@paschoalotto.com.br"
+                    className="text-[11px] font-bold text-brand-orange hover:underline shrink-0"
+                    id="ouvidoria-link-btn"
+                  >
+                    ouvidoria@paschoalotto.com.br
+                  </a>
+                </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    
-                    {/* Nome Input */}
-                    <div>
-                      <label htmlFor="form-nome" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1 font-mono">
-                        Seu nome completo / Empresa
-                      </label>
-                      <input
-                        id="form-nome"
-                        type="text"
-                        placeholder="Ex: João da Silva Santos / Nome da Empresa"
-                        value={formData.nome}
-                        onChange={(e) => handleInputChange('nome', e.target.value)}
-                        className={`w-full bg-slate-50 border ${
-                          errors.nome ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-brand-orange/20'
-                        } rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 transition-all`}
-                      />
-                      {errors.nome && <span className="text-red-500 text-[10px] block mt-1">{errors.nome}</span>}
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {/* E-mail Input */}
-                      <div>
-                        <label htmlFor="form-email" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1 font-mono">
-                          E-mail corporativo / pessoal
-                        </label>
-                        <input
-                          id="form-email"
-                          type="email"
-                          placeholder="EX: joao@email.com"
-                          value={formData.email}
-                          onChange={(e) => handleInputChange('email', e.target.value)}
-                          className={`w-full bg-slate-50 border ${
-                            errors.email ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-brand-orange/20'
-                          } rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 transition-all`}
-                        />
-                        {errors.email && <span className="text-red-500 text-[10px] block mt-1">{errors.email}</span>}
-                      </div>
-
-                      {/* WhatsApp Input */}
-                      <div>
-                        <label htmlFor="form-telefone" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1 font-mono">
-                          WhatsApp / Telefone
-                        </label>
-                        <input
-                          id="form-telefone"
-                          type="text"
-                          placeholder="(00) 00000-0000"
-                          value={formData.telefone}
-                          onChange={handlePhoneMask}
-                          className={`w-full bg-slate-50 border ${
-                            errors.telefone ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-brand-orange/20'
-                          } rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 transition-all`}
-                        />
-                        {errors.telefone && <span className="text-red-500 text-[10px] block mt-1">{errors.telefone}</span>}
-                      </div>
-                    </div>
-
-                    {/* Area Select */}
-                    <div>
-                      <label htmlFor="form-demanda" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1 font-mono">
-                        Seu principal objetivo
-                      </label>
-                      <select
-                        id="form-demanda"
-                        value={formData.demanda}
-                        onChange={(e) => handleInputChange('demanda', e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-brand-orange/20 transition-all text-slate-700 font-sans"
-                      >
-                        <option value="Quitação Amigável com Desconto (B2C)">Negociação de CPF em atraso (B2C)</option>
-                        <option value="Emissão de 2ª via de Boleto Paschoalotto">Emitir segunda via de boleto (B2C)</option>
-                        <option value="Contratação de Soluções de Cobrança / SAC (B2B)">Parceria / Soluções Comerciais para Empresas (B2B)</option>
-                        <option value="BPO e Tecnologia Integrada com IA (B2B)">Tecnologia Inteligente e Agentes Virtuais (B2B)</option>
-                        <option value="Dúvidas ou Outros Relacionamentos">Outros Relacionamentos / Ouvidoria</option>
-                      </select>
-                    </div>
-
-                    {/* Mensagem Area */}
-                    <div>
-                      <label htmlFor="form-mensagem" className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1 font-mono">
-                        Resumo da necessidade / Dados do Contrato ou Nome da Empresa
-                      </label>
-                      <textarea
-                        id="form-mensagem"
-                        rows={3}
-                        placeholder="Escreva aqui brevemente o que você precisa..."
-                        value={formData.mensagem}
-                        onChange={(e) => handleInputChange('mensagem', e.target.value)}
-                        className={`w-full bg-slate-50 border ${
-                          errors.mensagem ? 'border-red-500 focus:ring-red-200' : 'border-slate-200 focus:ring-brand-orange/20'
-                        } rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 transition-all resize-none`}
-                      />
-                      {errors.mensagem && <span className="text-red-500 text-[10px] block mt-1">{errors.mensagem}</span>}
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={formState === 'submitting'}
-                      className="w-full cursor-pointer bg-slate-900 hover:bg-slate-800 disabled:bg-slate-600 text-white font-sans font-bold py-4 px-6 rounded-xl text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg shadow-slate-950/10 active:scale-[0.98]"
-                      id="submit-contact-form-btn"
-                    >
-                      {formState === 'submitting' ? (
-                        <>
-                          <RefreshCw className="h-4 w-4 animate-spin" />
-                          Processando solicitação...
-                        </>
-                      ) : (
-                        <>
-                          Conectar Canal de Atendimento
-                          <Send className="h-4 w-4" />
-                        </>
-                      )}
-                    </button>
-
-                  </form>
-                </motion.div>
-              )}
-            </AnimatePresence>
+              </div>
+              
+              <div className="pt-2 flex items-center gap-2 text-[10px] text-gray-500 font-mono">
+                <CheckCircle2 className="h-4 w-4 text-green-600 shrink-0" />
+                Segurança, agilidade e respeito em conformidade com a LGPD.
+              </div>
+            </div>
           </div>
 
         </div>
