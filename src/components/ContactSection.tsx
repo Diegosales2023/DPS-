@@ -140,7 +140,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
                   </p>
                   
                   <a
-                    href="https://wa.me/551431030000?text=Olá!%20Gostaria%20de%20consultar%20minhas%20pendências%20de%20crédito%20com%20a%20Paschoalotto."
+                    href="https://api.whatsapp.com/send?phone=5511930040689&text=Solicito%20Atendimento"
                     target="_blank"
                     rel="noreferrer"
                     className="w-full mt-2 cursor-pointer bg-green-600 hover:bg-green-755 text-white font-sans font-bold py-3 px-4 rounded-xl shadow-md active:scale-[0.98] transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-wider"
@@ -174,7 +174,7 @@ export default function ContactSection({ formRef }: ContactSectionProps) {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                     <a
-                      href="https://wa.me/551421210000?text=Olá!%20Gostaria%20de%20solicitar%20uma%20apresentação%20comercial%20das%20soluções%20da%20Paschoalotto%20para%20minha%20empresa."
+                      href="https://api.whatsapp.com/send?phone=5511930040689&text=Solicito%20Atendimento"
                       target="_blank"
                       rel="noreferrer"
                       className="cursor-pointer bg-slate-900 hover:bg-slate-800 text-white font-sans font-bold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-[11px] uppercase tracking-wider"

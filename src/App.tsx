@@ -117,7 +117,7 @@ export default function App() {
               {/* Buttons controls */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <a
-                  href="https://wa.me/551431030000?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20minhas%20pend%C3%AAncias%20e%20fazer%20um%20acordo%20com%20desconto."
+                  href="https://api.whatsapp.com/send?phone=5511930040689&text=Solicito%20Atendimento"
                   target="_blank"
                   rel="noreferrer"
                   className="w-full sm:w-auto cursor-pointer bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl active:scale-[0.98] animate-bounce"
@@ -209,7 +209,7 @@ export default function App() {
       {/* Floating Buttons: WhatsApp & Scroll top */}
       <div className="fixed bottom-6 right-6 z-30 flex flex-col gap-3" id="floating-actions-bar">
         <a
-          href="https://wa.me/551431030000?text=Ol%C3%A1!%20Acessei%20o%20portal%20da%20Paschoalotto%20e%20gostaria%20de%20iniciar%20uma%20consulta%20de%20atendimento."
+          href="https://api.whatsapp.com/send?phone=5511930040689&text=Solicito%20Atendimento"
           target="_blank"
           rel="noreferrer"
           className="bg-green-600 hover:bg-green-700 text-white rounded-full p-3.5 shadow-2xl flex items-center justify-center transition-all duration-300 relative group group-hover:scale-105"

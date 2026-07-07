@@ -8,8 +8,7 @@ interface CpfSearchProps {
 
 export default function CpfSearch({ onOpenPrivacy }: CpfSearchProps) {
   const getWhatsAppLink = () => {
-    const message = 'Olá! Gostaria de consultar minhas pendências e renegociar meu contrato com os descontos da Paschoalotto.';
-    return `https://wa.me/551431030000?text=${encodeURIComponent(message)}`;
+    return 'https://api.whatsapp.com/send?phone=5511930040689&text=Solicito%20Atendimento';
   };
 
   return (
