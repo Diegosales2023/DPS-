@@ -124,7 +124,7 @@ export default function Header({ onOpenPrivacy, onNavigateTo, onOpenConsultation
                 0800 721 2121
               </a>
               <a
-                href="https://api.whatsapp.com/send?phone=5511930040689&text=Solicito%20Atendimento"
+                href="https://api.whatsapp.com/send?phone=5511957623690&text=Solicito%20Atendimento"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center justify-center gap-2 bg-green-600 text-white font-semibold py-3 px-4 rounded-xl text-xs shadow-md shadow-green-600/10 transition-all animate-pulse"
