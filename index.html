@@ -13,6 +13,41 @@
     <title>Paschoalotto | Recuperação de Crédito & Relacionamento Inteligente</title>
     <meta name="description" content="Líder nacional em cobrança amigável, soluções de SAC, atendimento omnichannel, agentes de IA e renegociação rápida via WhatsApp." />
     <script>
+      // Suppress benign development environment WebSocket / Vite HMR errors
+      (function() {
+        var suppressKeywords = ['websocket', 'web socket', 'vite'];
+        function shouldSuppress(value) {
+          if (!value) return false;
+          var str = String(value).toLowerCase();
+          for (var i = 0; i < suppressKeywords.length; i++) {
+            if (str.indexOf(suppressKeywords[i]) !== -1) {
+              return true;
+            }
+          }
+          return false;
+        }
+        window.addEventListener('unhandledrejection', function(event) {
+          var reason = event.reason;
+          var reasonStr = '';
+          if (reason) {
+            reasonStr = reason.message || reason.stack || String(reason);
+          }
+          if (shouldSuppress(reasonStr)) {
+            event.preventDefault();
+            if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+            event.stopPropagation();
+          }
+        }, true);
+        window.addEventListener('error', function(event) {
+          var message = event.message || (event.error && event.error.message) || '';
+          if (shouldSuppress(message)) {
+            event.preventDefault();
+            if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+            event.stopPropagation();
+          }
+        }, true);
+      })();
+
       // Gracefully handle environments/polyfills that try to assign to window.fetch
       (function() {
         try {
