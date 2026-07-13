@@ -8,7 +8,7 @@ interface CpfSearchProps {
 
 export default function CpfSearch({ onOpenPrivacy }: CpfSearchProps) {
   const getWhatsAppLink = () => {
-    return 'https://api.whatsapp.com/send?phone=5511952432965&text=Suporte%20Online';
+    return 'https://api.whatsapp.com/send?phone=5511962801944&text=Suporte%20Online';
   };
 
   return (
