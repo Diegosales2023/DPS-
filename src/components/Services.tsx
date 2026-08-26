@@ -14,7 +14,7 @@ export default function Services({ onContactFormFocus }: ServicesProps) {
       short: 'Soluções de cobrança ativa, receptiva e digital',
       desc: 'Abordagem especializada com foco na reabilitação financeira do consumidor. Oferecemos as melhores propostas com descontos reais aprovados diretamente pelos credores.',
       detail: 'Negociações humanizadas estruturadas sob as regras do Código de Defesa do Consumidor e em total conformidade com a LGPD.',
-      link: 'https://api.whatsapp.com/send?phone=5511966610390&text=Suporte%20Online'
+      link: 'https://api.whatsapp.com/send?phone=5511957623690&text=Paschoalotto%20Atendimento'
     },
     {
       icon: <MessageSquare className="h-8 w-8 text-brand-orange" />,
@@ -22,7 +22,7 @@ export default function Services({ onContactFormFocus }: ServicesProps) {
       short: 'Experiência completa e integrada de relacionamento',
       desc: 'Central unificada de atendimento (SAC, Ouvidoria, Backoffice) operando em canais integrados de texto, voz, e-mail e mídias sociais para alto índice de resolutividade.',
       detail: 'Uso de tecnologias integradas para proporcionar jornadas fluidas e resoluções eficientes no primeiro contato.',
-      link: 'https://api.whatsapp.com/send?phone=5511966610390&text=Suporte%20Online'
+      link: 'https://api.whatsapp.com/send?phone=5511957623690&text=Paschoalotto%20Atendimento'
     },
     {
       icon: <RefreshCw className="h-8 w-8 text-brand-orange" />,
@@ -30,7 +30,7 @@ export default function Services({ onContactFormFocus }: ServicesProps) {
       short: 'Tecnologia cognitiva integrada de última geração',
       desc: 'Desenvolvemos assistentes de voz e text inteligentes com processamento de linguagem natural (NLP) para agilizar acordos e automatizar interações de forma humanizada.',
       detail: 'Integrações seguras com WhatsApp Business API e os principais sistemas de gestão do mercado financeiro.',
-      link: 'https://api.whatsapp.com/send?phone=5511966610390&text=Suporte%20Online'
+      link: 'https://api.whatsapp.com/send?phone=5511957623690&text=Paschoalotto%20Atendimento'
     },
     {
       icon: <ShieldCheck className="h-8 w-8 text-brand-orange" />,
@@ -38,7 +38,7 @@ export default function Services({ onContactFormFocus }: ServicesProps) {
       short: 'Ambiente seguro para renegociação autônoma',
       desc: 'Plataforma digital integrada onde o próprio usuário pode consultar seu CPF em sigilo absoluto, visualizar descontos personalizados e gerar boletos registrados Febraban.',
       detail: 'Tecnologia avançada antifraude para a segurança total do pagamento do seu boleto de acordo.',
-      link: 'https://api.whatsapp.com/send?phone=5511966610390&text=Suporte%20Online'
+      link: 'https://api.whatsapp.com/send?phone=5511957623690&text=Paschoalotto%20Atendimento'
     },
     {
       icon: <Landmark className="h-8 w-8 text-brand-orange" />,
@@ -46,7 +46,7 @@ export default function Services({ onContactFormFocus }: ServicesProps) {
       short: 'Gestão estratégica de ativos corporativos',
       desc: 'Atuamos como parceiros oficiais dos maiores bancos, varejistas, operadoras de telecomunicações e distribuidoras de energia do país, com alta escalabilidade.',
       detail: 'Relatórios gerenciais completos e monitoramento de indicadores de performance em tempo real.',
-      link: 'https://api.whatsapp.com/send?phone=5511966610390&text=Suporte%20Online'
+      link: 'https://api.whatsapp.com/send?phone=5511957623690&text=Paschoalotto%20Atendimento'
     },
     {
       icon: <FileWarning className="h-8 w-8 text-brand-orange" />,
@@ -54,7 +54,7 @@ export default function Services({ onContactFormFocus }: ServicesProps) {
       short: 'Enriquecimento de dados e inteligência cadastral',
       desc: 'Soluções completas de tratamento de base de dados, higienização, enriquecimento cadastral e modelagem preditiva para maximizar a assertividade dos contatos.',
       detail: 'Processamento veloz sob rigorosos padrões de segurança de dados e total aderência à legislação brasileira.',
-      link: 'https://api.whatsapp.com/send?phone=5511966610390&text=Suporte%20Online'
+      link: 'https://api.whatsapp.com/send?phone=5511957623690&text=Paschoalotto%20Atendimento'
     }
   ];
 
@@ -130,7 +130,7 @@ export default function Services({ onContactFormFocus }: ServicesProps) {
             </p>
           </div>
           <a
-            href="https://api.whatsapp.com/send?phone=5511966610390&text=Suporte%20Online"
+            href="https://api.whatsapp.com/send?phone=5511957623690&text=Paschoalotto%20Atendimento"
             target="_blank"
             rel="noreferrer"
             className="shrink-0 cursor-pointer text-center bg-brand-orange hover:bg-brand-orange/90 text-white font-bold py-4 px-8 rounded-xl text-xs uppercase tracking-wider transition-all shadow-lg shadow-brand-orange/20 active:scale-[0.98] w-full md:w-auto relative z-10 animate-pulse"
